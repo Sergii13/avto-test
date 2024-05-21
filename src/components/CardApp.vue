@@ -17,8 +17,10 @@ import InfoIcon6 from '@/assets/images/icons/06.svg'
 import InfoIcon7 from '@/assets/images/icons/07.svg'
 import InfoIcon8 from '@/assets/images/icons/08.svg'
 import PhoneIcon from '@/assets/images/phone.svg'
+import CountryIcon from '@/assets/images/country.svg'
 import TradeIcon from '@/assets/images/trade.svg'
 import TestIcon from '@/assets/images/avto.svg'
+import ArrowIcon from '@/assets/images/arrow.svg'
 import { computed, ref } from 'vue'
 import { VRadioGroup, VRadio } from 'vuetify/components'
 
@@ -79,6 +81,12 @@ const visibleNumber = ref(false)
 
 function toggleVisibleNumber() {
   visibleNumber.value = !visibleNumber.value
+}
+
+const openMore = ref(false)
+
+function toggleMore() {
+  openMore.value = !openMore.value
 }
 </script>
 
@@ -354,6 +362,42 @@ function toggleVisibleNumber() {
         </div>
       </div>
     </div>
+    <div class="card__block">
+      <div class="card__block-title">
+        Описание
+      </div>
+      <div class="card__description">
+        <div class="card-info">
+          <div class="card-info__left">
+            <img :src="CountryIcon" alt="">
+          </div>
+          <div class="card-info__text">
+            АН 1111 НА
+          </div>
+        </div>
+        <div class="card__description-text" :class="{open:openMore}">
+          Продажа Ford Edge 2016 года. Автомобиль куплен для личного использования. Почти в полной комплектации Sport
+          Двигатель 2.7 Бензин 312 л.с. АКПП – полный привод AWD. Зимняя резина. Новая тормозная система. Android Auto.
+          Подогрев всех сидений.
+          Продажа Ford Edge 2016 года. Автомобиль куплен для личного использования. Почти в полной комплектации Sport
+          Двигатель 2.7 Бензин 312 л.с. АКПП – полный привод AWD. Зимняя резина. Новая тормозная система. Android Auto.
+          Подогрев всех сидений.
+        </div>
+        <div class="card__more-wrap">
+          <div class="card__more-btn" :class="{open:openMore}" @click="toggleMore">
+           <span v-if="!openMore">
+            Показать больше
+          </span>
+            <span v-else>
+            Показать меньше
+          </span>
+            <img :src="ArrowIcon" alt="">
+          </div>
+
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -365,6 +409,18 @@ function toggleVisibleNumber() {
   display: flex;
   align-items: flex-start;
   gap: 20px;
+  padding-bottom: 40px;
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -50vw;
+    width: 200vw;
+    height: 1px;
+    background: rgba(187, 187, 187, 0.40);
+  }
 }
 
 .card__left {
@@ -745,6 +801,95 @@ function toggleVisibleNumber() {
 
 .card__date-publication {
   color: var(--text-primary-60);
+}
+
+.card__block {
+  margin-bottom: 12px;
+  margin-top: 12px;
+  border-bottom: 1px solid rgba(187, 187, 187, 0.40);
+  padding: 20px 0px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.card__block-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.card__description {
+}
+
+.card-info {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid #07499D;
+  background: #FFF;
+  height: 24px;
+  overflow: hidden;
+}
+
+.card-info__left {
+  background: #07499D;
+  padding: 3px 4px;
+  display: inline-flex;
+  align-items: center;
+
+  img {
+    max-height: 100%
+  }
+}
+
+.card-info__text {
+  padding: 0 8px;
+  font-size: 14px;
+}
+
+.card__description-text {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 135%;
+  margin-top: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  &.open {
+    display: block;
+  }
+}
+
+.card__more-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.card__more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.3s;
+  cursor: pointer;
+
+  &.open {
+    img {
+      transform: rotate(180deg);
+    }
+  }
+
+  img {
+    transition: all 0.3s;
+  }
+
+  &:hover {
+    color: var(--Primary-active);
+  }
 }
 
 :deep(.v-selection-control__wrapper) {
