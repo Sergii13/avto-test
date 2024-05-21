@@ -1,0 +1,23 @@
+body .v-btn {
+    text-transform: inherit;
+    letter-spacing: 0px;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 4px;
+    box-shadow: none;
+
+    .v-btn__prepend {
+        margin-right: 4px;
+    }
+}
+
+.v-btn.v-btn--primary {
+    background: var(--Primary-active);
+    padding: 0px 20px;
+    color: var(--Text-secondary);
+}
+
+.v-btn.v-btn--secondary {
+    border-radius: 4px;
+    border: 1px solid var(--text-primary-100, #161616);
+}

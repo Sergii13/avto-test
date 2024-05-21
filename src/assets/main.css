@@ -1,0 +1,19 @@
+@import '@/assets/css/index.css';
+
+#app {
+    max-width: 1212px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 16px;
+    font-weight: normal;
+    font-family: 'Proxima Nova';
+}
+
+body {
+    color: var(--text-primary-100);
+    background: #fff;
+}
+
+a {
+    color: inherit;
+}

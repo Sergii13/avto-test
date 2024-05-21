@@ -1,0 +1,15 @@
+@import "variables.css";
+@import "fonts.css";
+@import "button.css";
+
+img {
+    max-width: 100%
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    line-height: 1.3;
+}

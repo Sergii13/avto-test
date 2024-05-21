@@ -1,0 +1,8 @@
+:root {
+    --text-primary-100: rgba(22, 22, 22, 1);
+    --text-primary-60: rgba(22, 22, 22, 0.60);
+    --Primary-active: #E73A3F;
+    --logo-black: #000;
+    --Text-secondary: #fff;
+    --Primary-hover: #E54B50
+}
